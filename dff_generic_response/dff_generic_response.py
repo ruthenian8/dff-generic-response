@@ -1,18 +1,12 @@
 """Main module"""
-from typing import Optional, List, Union
-from enum import Enum
+from typing import Any, Dict, Optional, List, Union
 
 from pydantic import BaseModel, Field
 
 
-class YandexCommands(Enum):
-    EXIT = "exit"
-    REQUEST_GEOLOCATION = "request_geolocation"
-
-
 class Link(BaseModel):
-    title: Optional[str] = None
     url: str = ...
+    title: Optional[str] = url
     hide: bool = False
 
     def html(self):
@@ -22,25 +16,32 @@ class Link(BaseModel):
 class GenericResponse(BaseModel):
     # required by: TG, Alice, FB
     text: str = ...
-    buttons: Optional[List[Union[str, BaseModel]]] = Field(default_factory=list)
-    links: Optional[List[BaseModel]] = Field(default_factory=list)
+    buttons: Optional[List[Union[str, BaseModel]]]
+    links: Optional[List[BaseModel]]
+    attachment: Optional[str]
+    end_session: Optional[bool]
     # required by: TG, Alice
-    audio_url: Optional[str] = None
-    image_url: Optional[str] = None
-    # required by: Alice
-    image: Optional[bytes] = None
-    gallery: Optional[BaseModel] = None
-    image_id: Optional[str] = None
-    tts: Optional[str] = text  # goes to Alice's tts response section
-    commands: Optional[List[str]] = Field(default_factory=list)
-    directives: Optional[dict] = None
-    show_item_meta: Optional[BaseModel] = None
-    should_listen: Optional[bool] = None
-    end_session: Optional[bool] = None
+    audio_url: Optional[str]
+    image_url: Optional[str]
 
-    def __init__(self, **kwargs):
-        commands = kwargs.get("commands", [])
-        if YandexCommands.EXIT or "exit" in commands:
-            kwargs["end_session"] = True
+    misc_options: Optional[Union[Dict[str, Any], BaseModel]]
 
-        super().__init__(**kwargs)
+    def __init__(
+        self,
+        *,
+        text: str,
+        buttons: Optional[List[Union[str, BaseModel]]] = Field(default_factory=list),
+        links: Optional[List[BaseModel]] = Field(default_factory=list),
+        attachment: Optional[str] = None,
+        end_session: Optional[bool] = False,
+        audio_url: Optional[str] = None,
+        image_url: Optional[str] = None,
+        misc_options: Optional[Union[Dict[str, Any], BaseModel]] = None,
+        **kwargs
+    ):
+        if not misc_options:
+            misc_options = kwargs
+        
+        locals().pop("kwargs")
+
+        super().__init__(**locals())
