@@ -3,7 +3,9 @@
 
 [DFF Generic Response](https://github.com/ruthenian8/dff-generic-response) is an extension to the [Dialogflow Engine](https://github.com/deepmipt/dialog_flow_engine), a minimalistic open-source engine for conversational services.
 
-[DFF Generic Response](https://github.com/ruthenian8/dff-generic-response) allows you to ...
+[DFF Generic Response](https://github.com/ruthenian8/dff-generic-response) introduces a GenericResponse class as well as generic classes for various media types. Using this API, you can create identical responses in dff adapters for Telegram, Yandex's Alice, or other services instead of learning service-specific classes. 
+
+Note that some of the options that are present in the generic response will be ignored, when the service API does not support them. For instance, since Yandex's Alice does not support sending videos or documents, fields like `video` or `attachment` will be skipped by `dff-alice-adapter`.  
 
 <!-- uncomment one of these to add badges to your project description -->
 <!-- [![Documentation Status](https://dff-generic-response.readthedocs.io/en/stable/?badge=stable)](https://readthedocs.org/projects/dff-generic-response/badge/?version=stable) -->
