@@ -91,6 +91,7 @@ class Response(BaseModel):
     attachments: Optional[Attachments] = None
     video: Optional[Video] = None
     audio: Optional[Audio] = None
+    location: Optional[Location] = None
     # commands and state options are required for integration with services
     # that use an intermediate backend server, like Yandex's Alice
     commands: Optional[List[Command]] = None

@@ -28,4 +28,4 @@ jobs:
 
       - name: build coverage file
         run: |
-          pytest --cache-clear --cov=dff_generic_response tests/ > pytest-coverage.txt
+          pytest --cache-clear --cov=dff_generics tests/ > pytest-coverage.txt

@@ -25,7 +25,20 @@ pip install dff-generic-response
 
 ## Basic example
 ```python
+from dff_generics import *
 
+response = Response(
+	text = "Some message", # all parameters except text are optional
+	# ui = Keyboard(buttons = [Button(text="a", payload='{"answer":"a"}'), ...]),
+	# location = Location(longitude=53.666666, latitude=35.666666),
+	# attachments = Attachments(files=[Image(source="http://image-url.jpg"), Image(source="./local/file")]),
+	# image = Image(source="http://image-url.jpg"),
+	# video = Video(source="./local/video"),
+	# document = Document(),
+	# audio = Audio(),
+	# commands = [Command(command="end_session")],
+	# session = Session.ACTIVE
+)
 ```
 
 To get more advanced examples, take a look at [examples](https://github.com/ruthenian8/dff-generic-response/tree/main/examples) on GitHub.
