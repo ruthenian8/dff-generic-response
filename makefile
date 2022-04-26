@@ -30,7 +30,7 @@ check: lint test
 .PHONY: check
 
 lint: venv
-	$(VENV_PATH)/bin/python -m flake8 --config=setup.cfg dff_generic_response/
+	$(VENV_PATH)/bin/python -m flake8 --config=setup.cfg dff_generics/
 	@set -e && $(VENV_PATH)/bin/python -m black --exclude="setup\.py" --line-length=120 --check . || ( \
 		echo "================================"; \
 		echo "Bad formatting? Run: make format"; \
@@ -40,7 +40,7 @@ lint: venv
 .PHONY: lint
 
 test: venv
-	@$(VENV_PATH)/bin/python -m pytest --cov-report html --cov-report term --cov=dff_generic_response tests/
+	@$(VENV_PATH)/bin/python -m pytest --cov-report html --cov-report term --cov=dff_generics tests/
 .PHONY: test
 
 test_all: venv test lint
@@ -52,7 +52,7 @@ venv_activation_check: venv
 
 build_doc: venv
 	make venv_activation_check
-	sphinx-apidoc -e -f -o docs/source/apiref dff_generic_response
+	sphinx-apidoc -e -f -o docs/source/apiref dff_generics
 	sphinx-build -M clean docs/source docs/build
 	sphinx-build -M html docs/source docs/build
 .PHONY: build_doc
