@@ -4,10 +4,10 @@ import df_engine.conditions as cnd
 from df_engine.core import Context, Actor
 from df_engine.core.keywords import TRANSITIONS, RESPONSE
 
-from dff_generics import Response
+from df_generics import Response
 from .example_utils import run_test, run_interactive_mode
 
-plot = {
+script = {
     "greeting_flow": {
         "start_node": {
             RESPONSE: Response(text=""),
@@ -50,7 +50,9 @@ testing_dialog = [
     ("Ok, goodbye.", "bye"),
 ]
 
-actor = Actor(plot=plot, start_label=("greeting_flow", "start_node"), fallback_label=("greeting_flow", "fallback_node"))
+actor = Actor(
+    script=script, start_label=("greeting_flow", "start_node"), fallback_label=("greeting_flow", "fallback_node")
+)
 
 if __name__ == "__main__":
     logging.basicConfig(

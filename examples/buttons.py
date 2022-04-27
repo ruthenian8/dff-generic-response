@@ -8,7 +8,7 @@ import df_engine.labels as lbl
 from df_engine.core import Context, Actor
 from df_engine.core.keywords import TRANSITIONS, RESPONSE
 
-from dff_generics.dff_generics import Button, Keyboard, Response
+from df_generics.response import Button, Keyboard, Response
 from .example_utils import run_test, run_interactive_mode
 
 
@@ -19,7 +19,7 @@ def check_button_payload(value: str):
     return payload_check_inner
 
 
-plot = {
+script = {
     "root": {
         "start": {
             RESPONSE: Response(text=""),
@@ -100,7 +100,7 @@ testing_dialog = [
     ("ok", "Finishing test"),
 ]
 
-actor = Actor(plot=plot, start_label=("root", "start"), fallback_label=("root", "fallback"))
+actor = Actor(script=script, start_label=("root", "start"), fallback_label=("root", "fallback"))
 
 if __name__ == "__main__":
     logging.basicConfig(

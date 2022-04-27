@@ -5,10 +5,10 @@ from df_engine.core.keywords import RESPONSE, TRANSITIONS
 from df_engine.core import Context, Actor
 from df_engine import conditions as cnd
 
-from dff_generics.dff_generics import Attachments, Image, Response
+from df_generics.response import Attachments, Image, Response
 from .example_utils import run_test, run_interactive_mode
 
-plot = {
+script = {
     "root": {
         "start": {
             RESPONSE: Response(text=""),
@@ -50,7 +50,7 @@ plot = {
     },
 }
 
-actor = Actor(plot=plot, start_label=("root", "start"), fallback_label=("root", "fallback"))
+actor = Actor(script=script, start_label=("root", "start"), fallback_label=("root", "fallback"))
 
 testing_dialog = [
     ("Hi", "Please, send me a picture url"),

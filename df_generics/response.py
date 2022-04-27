@@ -1,5 +1,5 @@
 """
-DFF Generics
+Dialog Flow Generics
 *************
 
 This module contains a universal response model that should be supported in all add-ons for df-engine.

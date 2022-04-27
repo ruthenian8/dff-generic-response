@@ -33,14 +33,14 @@ test_requirements = parse_requirements("requirements_test.txt")
 
 
 setup(
-    name="dff-generics",
-    version="0.0.1",
+    name="df_generics",
+    version="0.1.0",
     description=description,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/ruthenian8/dff-generic-response",
-    author="Daniil Ignatiev",
-    author_email="ruthenian8@gmail.com",
+    url="https://github.com/deepmipt/dialog_flow_generics",
+    author="Denis Kuznetsov",
+    author_email="kuznetsov.den.p@gmail.com",
     classifiers=[  # Optional
         #   3 - Alpha
         #   4 - Beta
@@ -57,11 +57,19 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3 :: Only",
     ],
-    keywords=["chatbots", "dff-generics"],  # Optional
+    keywords=["chatbots", "df-generics"],  # Optional
     packages=find_packages(where="."),  # Required
     include_package_data=True,
     python_requires=">=3.6, <4",
-    install_requires=requirements,
+    install_requires=["df_engine>=0.9.0"],  # Optional
     test_suite="tests",
-    tests_require=test_requirements,
+    tests_require=[
+        "pytest >=6.2.4,<7.0.0",
+        "pytest-cov >=2.12.0,<3.0.0",
+        "pytest-asyncio >=0.14.0,<0.15.0",
+        "flake8 >=3.8.3,<4.0.0",
+        "black ==20.8b1",
+        "click ==8.0.2",
+        "isort >=5.0.6,<6.0.0",
+    ],
 )

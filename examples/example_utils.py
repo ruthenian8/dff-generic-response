@@ -11,7 +11,7 @@ import logging
 from typing import Union, Optional, NamedTuple
 
 from df_engine.core import Context, Actor
-from dff_generics import Response, Keyboard
+from df_generics import Response, Keyboard
 
 
 class CallbackRequest(NamedTuple):
