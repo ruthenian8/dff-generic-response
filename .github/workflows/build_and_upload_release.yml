@@ -8,7 +8,7 @@ jobs:
   build:
     name: build and upload release
     # permit release uploads only from the repository owner
-    if: github.repository == 'ruthenian8/dff-generic-response'
+    if: github.repository == 'deepmipt/dialog_flow_generics'
     runs-on: ubuntu-latest
 
     steps:
