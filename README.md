@@ -1,7 +1,7 @@
 
 # Dialog Flow Generics
 
-[Dialog Flow Generics](https://github.com/deepmipt/dialog_flow_generics) is an extension to the [Dialogflow Engine](https://github.com/deepmipt/dialog_flow_engine), a minimalistic open-source engine for conversational services.
+[There](https://github.com/deepmipt/dialog_flow_generics) is an addon for the [Dialog Flow Engine](https://github.com/deepmipt/dialog_flow_engine), a minimalistic open-source engine for conversational services.
 
 [Dialog Flow Generics](https://github.com/deepmipt/dialog_flow_generics) introduces a GenericResponse class as well as generic classes for various media types. Using this API, you can create identical responses in DF adapters for Telegram, Yandex's Alice, or other services instead of learning service-specific classes. 
 
